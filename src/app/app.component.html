@@ -1,5 +1,9 @@
-<div *ngFor="let mex of messagesArr">
+<div *ngFor="let mex of messagesSent">
     <p>{{mex.content}}</p>
+</div>
+
+<div *ngFor="let mex of messagesReply">
+    <p style="color: red;">{{mex.content}}</p>
 </div>
 
 <form (ngSubmit)="send()" [formGroup]="form">

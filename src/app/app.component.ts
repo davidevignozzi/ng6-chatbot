@@ -14,8 +14,10 @@ export class AppComponent {
   // boolean to enable button
   written = false;
 
-  // array of messages
-  messagesArr= [];
+  // array of messages sent
+  messagesSent= [];
+  // array of messages recieved
+  messagesReply= [];
 
   constructor(
     private fb: FormBuilder
@@ -28,7 +30,7 @@ export class AppComponent {
   ngOnInit() {
   }
 
-  // check message.length to enable button
+  // ------------------------------------------------ check message.length to enable button
   checkMessage(): void{
     let message = this.form.controls['message'].value;
     if(message.length >= 1){
@@ -38,22 +40,38 @@ export class AppComponent {
     }
   }
 
-  // to send a message
+  // ------------------------------------------------ to send a message
   send(): void{
 
     let mexContent = this.form.controls['message'].value;
 
     // push message in the array
-    this.messagesArr.push(
+    this.messagesSent.push(
       {
-      content: mexContent,
-      date: new Date()
+        content: mexContent,
+        date: new Date(),
+        status: 'sent'
       }
-    )
-    console.log(this.messagesArr);
-
+    );
+    
+    // activate Replay after a second
+    setTimeout(() => {
+      this.autoReplay();
+    }, 1000)
+    
     // empty input
     this.form.controls['message'].setValue('');
-
   }
+
+  // ------------------------------------------------ response message
+  autoReplay(): void{
+    this.messagesReply.push(
+      {
+        content: 'Ciao',
+        date: new Date(),
+        status: 'replay'
+      }
+    )
+  }
+  
 }
