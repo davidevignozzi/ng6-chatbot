@@ -15,10 +15,8 @@ export class AppComponent {
   // boolean to enable button
   written = false;
 
-  // array of messages sent
-  messagesSent= [];
-  // array of messages recieved
-  messagesReply= [];
+  // Array all messages
+  messages = []
 
   constructor(
     private fb: FormBuilder
@@ -46,14 +44,15 @@ export class AppComponent {
 
     let mexContent = this.form.controls['message'].value;
 
-    // push message in the array
-    this.messagesSent.push(
+    // push message in the array of messages
+    this.messages.push(
       {
         content: mexContent,
         date: new Date(),
         status: 'sent'
       }
     );
+
     
     // activate Replay after a second
     setTimeout(() => {
@@ -67,11 +66,13 @@ export class AppComponent {
   // ------------------------------------------------ response message
   autoReplay(): void{
     // last message sent
-    let lastMessage = this.messagesSent[this.messagesSent.length - 1].content;
+    let lastMessage = this.messages[this.messages.length - 1].content;
 
     // greeting
     if(lastMessage.toUpperCase() === 'CIAO' || lastMessage.toUpperCase() === 'HEY' || lastMessage.toUpperCase() === 'HOLA' || lastMessage.toUpperCase() === 'WE' || lastMessage.toUpperCase() === 'EHI' || lastMessage.toUpperCase() === 'SALVE' || lastMessage.toUpperCase() === 'BUONGIORNO' || lastMessage.toUpperCase() === 'BUONASERA'){
-      this.messagesReply.push(
+      
+      // message in the array of messages
+      this.messages.push(
         {
           content: 'Ehilà',
           date: new Date(),
@@ -81,7 +82,9 @@ export class AppComponent {
     }
     // how are you? 
     else if(lastMessage.toUpperCase() === 'COME VA?' || lastMessage.toUpperCase() === 'COME VA' || lastMessage.toUpperCase() === 'COME STAI?' || lastMessage.toUpperCase() === 'COME STAI' || lastMessage.toUpperCase() === 'COME VA LA VITA?' || lastMessage.toUpperCase() === 'COME VA LA VITA'){
-      this.messagesReply.push(
+      
+      // message in the array of messages
+      this.messages.push(
         {
           content: 'Tutto bene dai',
           date: new Date(),
@@ -91,7 +94,9 @@ export class AppComponent {
     }
     // who are you? 
     else if(lastMessage.toUpperCase() === 'CHI SEI?'){
-      this.messagesReply.push(
+      
+      // message in the array of messages
+      this.messages.push(
         {
           content: 'Sono AngularBot, un Bot creato da un programmatore pigro infatti avrei dovuto sapere come rispondere a molte domande ma in realtà non so niente. Posso solo salutare.',
           date: new Date(),
@@ -101,7 +106,9 @@ export class AppComponent {
     }
     // Where are you?
     else if(lastMessage.toUpperCase() === 'DOVE SEI?' || lastMessage.toUpperCase() === 'DOVE VIVI?'){
-      this.messagesReply.push(
+
+      // push in the array of messages
+      this.messages.push(
         {
           content: 'Sono un Bot...',
           date: new Date(),
@@ -115,15 +122,19 @@ export class AppComponent {
       )
     }
     else if(lastMessage.toUpperCase().includes("COMPONENT") || lastMessage.toUpperCase().includes("SELECTOR") || lastMessage.toUpperCase().includes("NGFOR") || lastMessage.toUpperCase().includes("NGIF")){
-      this.messagesReply.push(
+
+      // message in the array of messages
+      this.messages.push(
         {
-          content: `E' Javascript. Consulta la documentazione di Angular se vuoi saperne di più.`,
+          content: "E' Javascript. Consulta la documentazione di Angular se vuoi saperne di più.",
           date: new Date(),
           status: 'replay'
         }
       )
     } else {
-      this.messagesReply.push(
+
+      // push in the array of messages
+      this.messages.push(
         {
           content: 'Non ho capito',
           date: new Date(),
@@ -132,5 +143,4 @@ export class AppComponent {
       )
     }    
   }
-  
 }

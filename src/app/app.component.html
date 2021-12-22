@@ -1,21 +1,27 @@
-<div *ngFor="let mex of messagesSent">
-    <p>{{mex.content}}</p>
+<div class="app">
+    <section class="section-container">
+
+        <div class="messages-container" *ngFor="let mex of messages">
+            <div [ngClass]="{'sent': mex.status === 'sent', 'replay': mex.status === 'replay'}">
+                <p>{{mex.content}}</p>
+            </div>
+        </div>
+
+    </section>
+    
+    <section class="input-container">
+        <form (ngSubmit)="send()" [formGroup]="form">
+    
+            <input 
+            type="text"
+            placeholder="Write here"
+            formControlName="message"
+            (ngModelChange)="checkMessage()">
+          
+            <button type="submit" [disabled]="!written">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+        </form>
+    </section>
 </div>
-
-<div *ngFor="let mex of messagesReply">
-    <p style="color: red;">{{mex.content}}</p>
-</div>
-
-<form (ngSubmit)="send()" [formGroup]="form">
-
-    <input 
-    type="text"
-    placeholder="Write here"
-    formControlName="message"
-    (ngModelChange)="checkMessage()">
-  
-    <input type="submit"
-    value="send"
-    [disabled]="!written">
-  
-</form>

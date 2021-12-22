@@ -1,0 +1,80 @@
+/* ? --------------------------------------------------- common */
+.app{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ? --------------------------------------------------- messages */
+.section-container{
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+}
+.section-container::-webkit-scrollbar {
+    display: none;
+}
+.messages-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.sent p, .replay p{
+    font-size: 18px;
+    padding: 10px 14px;
+}
+.sent, .replay{
+    max-width: 40%;
+    color: #303030;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+.sent:first-of-type{
+    margin-top: 0;
+}
+
+/* * ------------------------- sent */
+.sent{
+    align-self: flex-end;
+    background-color: #fff;
+}
+/* * ------------------------- recieved */
+.replay{
+    align-self: flex-start;
+    background-color: #25cede;
+}
+
+/* ? --------------------------------------------------- input */
+.input-container{
+   height: 100px; 
+}
+form{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.input-container input{
+    width: calc(100% - 60px);
+    margin-right: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+}
+.input-container input:focus{
+    outline: none;
+}
+
+/* submit */
+.input-container button{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+.input-container button:enabled{
+    color: #fff;
+}
+.input-container button i{
+    font-size: 50px;
+}
