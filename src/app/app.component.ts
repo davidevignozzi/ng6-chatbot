@@ -70,10 +70,20 @@ export class AppComponent {
     let lastMessage = this.messagesSent[this.messagesSent.length - 1].content;
 
     // greeting
-    if(lastMessage === 'Ciao' || 'Hey' || 'Hola' || 'We' || 'Ehi' || 'Salve' || 'Buongiorno' || 'Buonasera'){
+    if(lastMessage.toUpperCase() === 'CIAO' || lastMessage.toUpperCase() === 'HEY' || lastMessage.toUpperCase() === 'HOLA' || lastMessage.toUpperCase() === 'WE' || lastMessage.toUpperCase() === 'EHI' || lastMessage.toUpperCase() === 'SALVE' || lastMessage.toUpperCase() === 'BUONGIORNO' || lastMessage.toUpperCase() === 'BUONASERA'){
       this.messagesReply.push(
         {
           content: 'Ehilà',
+          date: new Date(),
+          status: 'replay'
+        }
+      )
+    }
+    // how are you? 
+    else if(lastMessage.toUpperCase() === 'COME VA?' || lastMessage.toUpperCase() === 'COME VA' || lastMessage.toUpperCase() === 'COME STAI?' || lastMessage.toUpperCase() === 'COME STAI' || lastMessage.toUpperCase() === 'COME VA LA VITA?' || lastMessage.toUpperCase() === 'COME VA LA VITA'){
+      this.messagesReply.push(
+        {
+          content: 'Tutto bene dai',
           date: new Date(),
           status: 'replay'
         }
