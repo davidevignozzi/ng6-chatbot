@@ -29,9 +29,6 @@
     border-radius: 30px;
     margin-top: 15px;
 }
-.sent:first-of-type{
-    margin-top: 0;
-}
 
 /* * ------------------------- sent */
 .sent{

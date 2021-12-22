@@ -69,7 +69,7 @@ export class AppComponent {
     let lastMessage = this.messages[this.messages.length - 1].content;
 
     // greeting
-    if(lastMessage.toUpperCase() === 'CIAO' || lastMessage.toUpperCase() === 'HEY' || lastMessage.toUpperCase() === 'HOLA' || lastMessage.toUpperCase() === 'WE' || lastMessage.toUpperCase() === 'EHI' || lastMessage.toUpperCase() === 'SALVE' || lastMessage.toUpperCase() === 'BUONGIORNO' || lastMessage.toUpperCase() === 'BUONASERA'){
+    if(lastMessage.toUpperCase() === 'CIAO' || lastMessage.toUpperCase() === 'HEY' || lastMessage.toUpperCase() === 'HOLA' || lastMessage.toUpperCase() === 'WE' || lastMessage.toUpperCase() === 'EHI' || lastMessage.toUpperCase() === 'SALVE' || lastMessage.toUpperCase() === 'BUONGIORNO' || lastMessage.toUpperCase() === 'BUONASERA' || lastMessage.toUpperCase() === 'HEI'){
       
       // message in the array of messages
       this.messages.push(
