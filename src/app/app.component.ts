@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { last } from '@angular/router/src/utils/collection';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -65,13 +66,28 @@ export class AppComponent {
 
   // ------------------------------------------------ response message
   autoReplay(): void{
-    this.messagesReply.push(
-      {
-        content: 'Ciao',
-        date: new Date(),
-        status: 'replay'
-      }
-    )
+    // last message sent
+    let lastMessage = this.messagesSent[this.messagesSent.length - 1].content;
+
+    // greeting
+    if(lastMessage === 'Ciao' || 'Hey' || 'Hola' || 'We' || 'Ehi' || 'Salve' || 'Buongiorno' || 'Buonasera'){
+      this.messagesReply.push(
+        {
+          content: 'Ehilà',
+          date: new Date(),
+          status: 'replay'
+        }
+      )
+    } else {
+      this.messagesReply.push(
+        {
+          content: 'Non ho capito',
+          date: new Date(),
+          status: 'replay'
+        }
+      )
+    }
+    
   }
   
 }
