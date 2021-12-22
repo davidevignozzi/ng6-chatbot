@@ -88,6 +88,31 @@ export class AppComponent {
           status: 'replay'
         }
       )
+    }
+    // who are you? 
+    else if(lastMessage.toUpperCase() === 'CHI SEI?'){
+      this.messagesReply.push(
+        {
+          content: 'Sono AngularBot, un Bot creato da un programmatore pigro infatti avrei dovuto sapere come rispondere a molte domande ma in realtà non so niente. Posso solo salutare.',
+          date: new Date(),
+          status: 'replay'
+        }
+      )
+    }
+    // Where are you?
+    else if(lastMessage.toUpperCase() === 'DOVE SEI?' || lastMessage.toUpperCase() === 'DOVE VIVI?'){
+      this.messagesReply.push(
+        {
+          content: 'Sono un Bot...',
+          date: new Date(),
+          status: 'replay'
+        },
+        {
+          content: 'Vivo dentro internet',
+          date: new Date(),
+          status: 'replay'
+        }
+      )
     } else {
       this.messagesReply.push(
         {
@@ -96,8 +121,7 @@ export class AppComponent {
           status: 'replay'
         }
       )
-    }
-    
+    }    
   }
   
 }
