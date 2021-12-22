@@ -113,6 +113,15 @@ export class AppComponent {
           status: 'replay'
         }
       )
+    }
+    else if(lastMessage.toUpperCase().includes("COMPONENT") || lastMessage.toUpperCase().includes("SELECTOR") || lastMessage.toUpperCase().includes("NGFOR") || lastMessage.toUpperCase().includes("NGIF")){
+      this.messagesReply.push(
+        {
+          content: `E' Javascript. Consulta la documentazione di Angular se vuoi saperne di più.`,
+          date: new Date(),
+          status: 'replay'
+        }
+      )
     } else {
       this.messagesReply.push(
         {
